@@ -4,5 +4,6 @@
 #include<unistd.h>
 #include<fcntl.h>
 #include<time.h>
+#include<stdlib.h>
 
-void gettime(char* tbuf);        //시간 서식 지정
+void getdate(char* tbuf);        //시간 서식 지정

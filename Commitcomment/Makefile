@@ -1,5 +1,5 @@
 SRCS = main.c
-LIBSRCS = gettime.c
+LIBSRCS = getdate.c
 CC = gcc
 OPTS = -Wall -g
 LIBS = -L. -lcommitcomment
