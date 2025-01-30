@@ -17,4 +17,4 @@ $(LARS) : $(LOBJS)
 $.0: %.c
 	$(CC) $(OPTS) -c $< -o $@
 clean:
-	rm -f $(OBJS) $(LOBJS) $(LARS) $(TARG)
+	rm -f $(OBJS) $(LOBJS) $(LARS) $(TARG) commit

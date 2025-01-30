@@ -8,9 +8,9 @@
 
 int main(int argc, char* argv[]){
     //커밋 메시지 작성 파일
-    int mfd; int mflags;
-    mflags = O_CREAT| O_TRUNC | O_WRONLY;
-    mmode = S_IRWXU | S_IRGRP | S_IROTH;
+    int mfd;
+    int mflags = O_CREAT| O_TRUNC | O_WRONLY;
+    int mmode = S_IRWXU | S_IRGRP | S_IROTH;
     mfd = open("./commit", mflags, mmode);
 
     //옵션 인자
