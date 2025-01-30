@@ -3,6 +3,7 @@
 #include<fcntl.h>
 #include<unistd.h>
 #include<fcntl.h>
+#include "commitcomment.h"
 
 int main(int argc, char* argv[]){
     int i = 0;
@@ -15,4 +16,7 @@ int main(int argc, char* argv[]){
     }
     *cbuf = '\n';
     write(STDOUT_FILENO, cbuf, 1);
+
+    char tbuf[10]; gettime(tbuf);
+    write(STDOUT_FILENO, tbuf, 10);
 }

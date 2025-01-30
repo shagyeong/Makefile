@@ -3,5 +3,6 @@
 #include<fcntl.h>
 #include<unistd.h>
 #include<fcntl.h>
+#include<time.h>
 
-int getformat(const char* pathname);    //커밋 메시지 서식 지정 파일 열기
+void gettime(char* tbuf);        //시간 서식 지정
