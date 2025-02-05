@@ -6,6 +6,8 @@
 - Git commit 메시지 작성
 ### 테스트 환경
 - Ubuntu 22.04
+### 테스트
+- <img src="./Demo/MP2025-02-05.png">
 
 # Commitcomment: 커밋 메시지 작성
 ## 프로젝트 요약
@@ -46,4 +48,4 @@
     (...)
     ```
 - GitHub.com/shagyeong/Makefile
-    <img src="./Demo/2025-01-30.png">
+    <img src="./Demo/CC2025-01-30.png">
