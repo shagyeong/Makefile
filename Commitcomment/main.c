@@ -6,35 +6,29 @@
 #include<stdlib.h>
 #include "commitcomment.h"
 
-int main(int argc, char* argv[]){
-    //커밋 메시지 작성 파일
-    int mfd;
-    int mflags = O_CREAT| O_TRUNC | O_WRONLY;
-    int mmode = S_IRWXU | S_IRGRP | S_IROTH;
-    mfd = open("./commit", mflags, mmode);
+// ./cc: 루트의 git.sh 업데이트/푸시
+// ./cc NW OS SP: 인자로 지정한 디렉터리의 git.sh 업데이트/푸시
+// ./cc -w NW: 옵션 인자로 지정한 디렉터리의 git.sh 업데이트
 
-    //옵션 인자
-    int opt;
+int main(int argc, char* argv[]){
+    int i = 1;
+
+    //옵션 처리
+    int opt = getopt(argc, argv, "w:");
     extern char* optarg;
     extern int optind;
-    
-    //커밋 메시지 작성
-    write(mfd, "git add *\n", 10);
-    write(mfd, "git commit -m \"Update: ", 23);
-    char tbuf[10]; getdate(tbuf);
-    write(mfd, tbuf, 10);
-    write(mfd, "\"\n", 2);
-    
-    //옵션 처리
-    while((opt = getopt(argc, argv, "p")) != -1){
-        switch(opt){
-            case 'p':
-                write(STDOUT_FILENO, "-p: push\n", 9);
-                write(mfd, "git push origin main\n", 21);
-        }
+    switch(opt){
+        case 'w':
+            writecomment(opt, optarg);
+            break;
+        default:
+            if(argc == 1){
+                writecomment(opt, ".");
+            }
+            else{
+                while(i < argc){
+                    writecomment(opt, argv[i++]);
+                }
+            }
     }
-
-    //커밋/푸시
-    system("cat ./commit && sh ./commit");
-    close(mfd);
 }
